@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+
+	public static List<Integer> stringAnagram(List<String> dictionary,
+			List<String> query) {
+
+		List<Integer> arr = new ArrayList<Integer>();
+		for (int i = 0; i < query.size(); i++) {
+			int count = 0;
+			for (int j = 0; j < dictionary.size(); j++) {
+				char dictArray[] = dictionary.get(j).toCharArray();
+				char queryArray[] = query.get(i).toCharArray();
+				List<Character> l1 = new ArrayList<Character>();
+				List<Character> l2 = new ArrayList<Character>();
+				for (Character character : dictArray) {
+					l1.add(character);
+				}
+
+				for (Character character : queryArray) {
+					l2.add(character);
+				}
+
+				if (l1.containsAll(l2) && l1.size() == l2.size()) {
+					count++;
+				}
+
+			}
+			arr.add(count);
+		}
+
+		return arr;
+	}
+
+	public static void main(String[] args) {
+		List<String> dictionary = new ArrayList<String>();
+		dictionary.add("cold");
+		dictionary.add("lodc");
+		dictionary.add("docl");
+		dictionary.add("heater");
+		List<String> query = new ArrayList<String>();
+		query.add("codl");
+		query.add("heat");
+		System.out.println(Solution.stringAnagram(dictionary, query));
+
+	}
+
+}
