@@ -1,0 +1,32 @@
+/*Write a program to validate the given web address is a valid one or not according to the following guidelines:
+It should start with either http or https
+It should be followed by "://"
+It may have "www."
+The web address should be alphanumeric
+After a "." the domain name should be one among "com", "org", "net"*/
+
+public class WebAddressValidator {
+	
+	
+	boolean isValidWebAddress(String webAddress){
+		boolean flag = false;
+		if(webAddress.matches("(http|https):[/]{2}([w]{3}.)*[\\w && [^_]]+.(com|org|net)")){
+			flag = true;
+		}
+		else{
+			flag = false;
+		}
+		return flag;
+	}
+	
+	public static void main(String[] args) {
+		WebAddressValidator web = new WebAddressValidator();
+		boolean result = web.isValidWebAddress("http://flipkart.com");
+		if(result==true){
+			System.out.println("You have entered a valid web address");
+		}
+		else{
+			System.out.println("You have entered an invalid web address");
+		}
+	}
+}
