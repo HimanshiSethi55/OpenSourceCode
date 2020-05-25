@@ -1,0 +1,23 @@
+public class RegexDemo {
+		public static void main(String[] args) {
+			System.out.println(" + means 1 or more occurence. \n ? denotes 0 or 1 occurence. \n * means 0 or more occurence \n () is used for grouping");
+	        System.out.println("EK-860619645:IN".matches("[A-Z]{2}-[0-9]{9}:[A-Z]{2}")); 
+	        
+          System.out.println("him123".matches("[\\w]{2,4}[\\d]{3}"));// Password should contain 2-4 letters followed by 3 digits.
+	        
+          System.out.println("him".matches("\\d?[\\w]+")); //An optional digit at the beginning followed by alphabets.
+	        
+          System.out.println("Take care, bye.See you later.".matches(".*bye.*")); //Input should contain bye.
+	        
+          System.out.println("absZiop".matches(".*[A-z]{1}.*"));//Input should contain at least 1 uppercase letter.
+	        
+          System.out.println("absZiop1234".matches("[A-Za-z0-9]+"));//Input should contain just alphabets and digits.
+	        
+          System.out.println("absZiop1234".matches("[\\w&&[^_]]+"));//Input should contain just alphabets and digits.
+	        
+          System.out.println("What is your name".matches("(\\w+ )+\\w+"));//A sentence should have only 1 space between words.
+	        
+          System.out.println("johnny99@infy.com".matches("[a-zA-Z0-9@.]+]"));
+		}
+		
+}
